@@ -1,0 +1,1176 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="supported_vrplib_fields.html">
+      
+      
+        <link rel="next" href="glossary.html">
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>Supporting new VRP variants - PyVRP 0.11.0 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.96fe8683ff2bd71e9.min.css?v=13adf062" />
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="yellow">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="PyVRP 0.11.0 documentation" class="md-header__button md-logo" aria-label="PyVRP 0.11.0 documentation" data-md-component="logo">
+      <img src="../_static/icon.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PyVRP 0.11.0 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Supporting new VRP variants
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="yellow"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PyVRP/PyVRP/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PyVRP
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="PyVRP 0.11.0 documentation" class="md-nav__button md-logo" aria-label="PyVRP 0.11.0 documentation" data-md-component="logo">
+      <img src="../_static/icon.svg" alt="logo">
+    </a>
+    PyVRP 0.11.0 documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PyVRP/PyVRP/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PyVRP
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/introduction_to_vrp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/introduction_to_vrp.rst (reference label)">A brief introduction to VRP</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/introduction_to_hgs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/introduction_to_hgs.rst (reference label)">A brief introduction to HGS</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/installation.rst (reference label)">Installation instructions</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/getting_help.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/getting_help.rst (reference label)">Getting help</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/faq.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/faq.rst (reference label)">FAQ</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/concepts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/concepts.rst (reference label)">Concepts</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/benchmarks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/benchmarks.rst (reference label)">Benchmarks</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/citing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/citing.rst (reference label)">Citing Py<wbr>VRP</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/quick_tutorial.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/quick_tutorial.ipynb (reference label)">A quick tutorial</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/basic_vrps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/basic_vrps.ipynb (reference label)">Classic VRPs</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/using_pyvrp_components.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/using_pyvrp_components.ipynb (reference label)">Using Py<wbr>VRP’s components</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            API reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/pyvrp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/pyvrp.rst (reference label)">Py<wbr>VRP</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/crossover.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/crossover.rst (reference label)">Crossover operators</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/diversity.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/diversity.rst (reference label)">Diversity measures</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/repair.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/repair.rst (reference label)">Repair operators</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/search.rst (reference label)">Search methods</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/plotting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/plotting.rst (reference label)">Plotting tools</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/stop.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/stop.rst (reference label)">Stopping criteria</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developing Py<wbr>VRP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Developing Py<wbr>VRP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="benchmarking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/benchmarking.rst (reference label)">Benchmarking</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/contributing.rst (reference label)">Contributing</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="supported_vrplib_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/supported_vrplib_fields.rst (reference label)">The VRPLIB format</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/new_vrp_variants.rst (reference label)">Supporting new VRP variants</span>
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/glossary.rst (reference label)">Glossary</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="supporting-new-vrp-variants">Supporting new VRP variants<a class="headerlink" href="#supporting-new-vrp-variants" title="Link to this heading">¶</a></h1>
+<p>On this page we describe some guidelines and ‘gotchas’ to think about while adding support for new VRP variants to PyVRP.
+These are given as hints.
+To make these guidelines concrete, we take examples from our experience adding support for prize-collecting VRPs, which was added to PyVRP in version <a class="reference external" href="https://github.com/PyVRP/PyVRP/tree/4632ce97cedbc9d58216c2bec43cd679eb1d21c9">0.3.0</a>.
+For reference, the pull request implementing prize-collecting is available <a class="reference external" href="https://github.com/PyVRP/PyVRP/pull/213">here</a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>If you want to merge your work into PyVRP itself, please first open an issue in the repository.
+It is also recommended to open an early draft pull request.
+How to set everything up for development is documented on the <a class="reference internal" href="contributing.html"><span class="doc">contributing</span></a> page.</p>
+</div>
+<p>Adding support for new VRP variants starts with thinking about where to add the new problem data needed to solve it.
+In the case of prize-collecting, this meant adding the <code class="docutils literal notranslate"><span class="pre">prize:</span> <span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">required:</span> <span class="pre">bool</span></code> fields to the <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.Client" title="pyvrp._pyvrp.Client (Python class) — Simple data object storing all client data as properties. See also ../setup/concepts for further information about these properties."><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> object:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">prize</span></code> field indicates the prize obtained for visiting the client;</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">required</span></code> field indicates whether the client <em>must</em> be part of a feasible solution, regardless of the prize.</p></li>
+</ul>
+<p>Adding such data requires modifying the <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.Client" title="pyvrp._pyvrp.Client (Python class) — Simple data object storing all client data as properties. See also ../setup/concepts for further information about these properties."><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> class, which is written in C++.
+After changing C++ functionality, don’t forget to update the Python bindings and type stub files with the new changes!</p>
+<div class="hint tip admonition">
+<p class="admonition-title">Hint</p>
+<p>When adding or modifying C++ functionality, don’t forget to update the Python bindings and type stub files!</p>
+</div>
+<p>When adding new data fields, it is particularly important to think about sane default values.
+For example, the standard CVRP and VRPTW do not consider prizes, and all clients must be visited in those problem settings.
+It thus makes sense to make prize-collecting an <em>opt-in</em> feature, with defaults <code class="docutils literal notranslate"><span class="pre">prize</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">required</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+<div class="hint tip admonition">
+<p class="admonition-title">Hint</p>
+<p>Think about sane default values for any new data fields!</p>
+</div>
+<p>With the required problem data now available, the next step is to think about what needs to change in terms of the objective, and how to support its evaluation.
+This is not always required: for example, if your VRP variant only introduces additional constraints, you can typically skip this step.
+In the case of prize-collecting, however, the prizes must be added to the objective.</p>
+<p>This requires modifying the <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a>’s and <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance."><code class="xref py py-class docutils literal notranslate"><span class="pre">CostEvaluator</span></code></a>’s implementation of the cost components.
+In particular, we updated the <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a> to also compute the total value of all <em>uncollected</em> prizes, and changed <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.CostEvaluator.cost" title="pyvrp._pyvrp.CostEvaluator.cost (Python method) — Hand-waving some details, each solution consists of a set of non-empty routes \mathcal{R}. Each route R \in \mathcal{R} is a sequence of edges, starting and ending at a depot. Each route R has an assigned vehicle type, through which the route is equipped with a fixed vehicle cost f_R, and unit distance and duration costs c^\text{distance}_R and c^\text{duration}_R, respectively. Let V_R = \{i : (i, j) \in R \} be the set of locations visited by route R, and d_R and t_R the total route distance and duration, respectively. The objective value is then given by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cost()</span></code></a> to compute</p>
+<div class="math notranslate nohighlight">
+\[\overbrace{\sum_{(i, j)} d_{ij} x_{ij}}^{\text{distance}} + \overbrace{\sum_{i} p_i (1 - y_i)}^{\text{uncollected prizes}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_{ij} \in \{0, 1\}\)</span> indicates if arc <span class="math notranslate nohighlight">\((i, j)\)</span> is used, and <span class="math notranslate nohighlight">\(y_i \in \{0, 1\}\)</span> indicates if client <span class="math notranslate nohighlight">\(i\)</span> is visited.</p>
+<div class="hint tip admonition">
+<p class="admonition-title">Hint</p>
+<p>Think about whether you need to modify the objective function.
+If you do, a good starting point is to look at the implementations of the <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a> and the <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance."><code class="xref py py-class docutils literal notranslate"><span class="pre">CostEvaluator</span></code></a>.</p>
+</div>
+<p>The next step is to modify the search methods in <a class="reference internal" href="../api/search.html#module-pyvrp.search" title="pyvrp.search: Search"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvrp.search</span></code></a> to respect the constraints of the new VRP variant.
+Depending on the VRP variant in question, this might be simple, or it could be a lot of work: if you are unsure whether your VRP variant will be a lot of work to support, please consider opening an issue for discussion first.</p>
+<div class="hint tip admonition">
+<p class="admonition-title">Hint</p>
+<p>Open an issue if you are unsure about how to proceed implementing your VRP variant.</p>
+</div>
+<p>In the <a class="reference internal" href="../api/search.html#module-pyvrp.search" title="pyvrp.search: Search"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvrp.search</span></code></a> module, either changes need to be made to the operators, or the <a class="reference internal" href="../api/search.html#module-pyvrp.search.LocalSearch" title="pyvrp.search.LocalSearch (Python module)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalSearch</span></code></a> object.
+In the case of prize-collecting, it was the latter: we added support for evaluating (and applying) moves that inserted a client into the solution, or removed a client from it.
+The required evaluation logic was easy to write by looking at the implementation of <a class="reference internal" href="../api/search.html#pyvrp.search._search.Exchange10" title="pyvrp.search._search.Exchange10 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U's route (starting at U) with M consecutive clients from V's route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><code class="xref py py-class docutils literal notranslate"><span class="pre">Exchange10</span></code></a>.</p>
+<p>With those changes in place, a basic implementation supporting the new VRP variant is typically already functional.
+This is more than sufficient for an initial patch, so please open a pull request around this time.
+To get that pull request merged, two more things are required:</p>
+<ul class="simple">
+<li><p>Tests exercising the new or modified code.
+These tests should check edge cases that are not supported (are errors raised when they should?), and ensure the basic functionality is correct.</p></li>
+<li><p>Benchmark results, on existing benchmark instances (see <a class="reference internal" href="benchmarking.html"><span class="doc">benchmarking</span></a> for an explanation of how we benchmark), and possibly on benchmark instances for the new VRP variant.
+Benchmarks on existing instances ensures the new code does not cause a performance regression, and benchmarks on new instances ensures we have a baseline for the newly supported VRP variant.
+New benchmark instances are not strictly necessary if the changes are very small (e.g., only adding a single new constraint) - this will be decided on a case-by-case basis during review of your pull request.</p></li>
+</ul>
+<div class="hint tip admonition">
+<p class="admonition-title">Hint</p>
+<p>A successful pull request adds tests and shows benchmark results!</p>
+</div>
+<p>With a basic implementation in place, PyVRP should now be able to find solutions for the new VRP variant.
+Of course, it might be possible to further improve the implementation.
+In the case of prize-collecting, after the initial implementation, we also:</p>
+<ul class="simple">
+<li><p>Modified the computation of the granular neighbourhood in <a class="reference internal" href="../api/search.html#pyvrp.search.neighbourhood.compute_neighbours" title="pyvrp.search.neighbourhood.compute_neighbours (Python function) — Computes neighbours defining the neighbourhood for a problem instance."><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_neighbours()</span></code></a> to take prizes into account.</p></li>
+<li><p>Updated various statistics to display the number of clients in a solution.</p></li>
+<li><p>Changed <a class="reference internal" href="../api/pyvrp.html#pyvrp._pyvrp.Solution.neighbours" title="pyvrp._pyvrp.Solution.neighbours (Python method) — Returns a list of neighbours for each client, by index."><code class="xref py py-meth docutils literal notranslate"><span class="pre">neighbours()</span></code></a> to return <code class="docutils literal notranslate"><span class="pre">None</span></code> in case a client is <em>not</em> in the solution.</p></li>
+</ul>
+<p>Such changes may come about later, as we further improve support for a new VRP variant: the pull request adding initial support should ideally be kept as simple as possible.</p>
+<div class="hint tip admonition">
+<p class="admonition-title">Hint</p>
+<p>Keep it simple.
+It is always possible to further improve support for a VRP variant in later pull requests.</p>
+</div>
+<p>We hope that the guidelines on this page will prove helpful when adding support for a new VRP variant.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>For further inspiration, you may want to look at the pull requests that added:</p>
+<ul class="simple">
+<li><p>Support for <a class="reference external" href="https://github.com/PyVRP/PyVRP/pull/254">client release times</a>.</p></li>
+<li><p>Support for <a class="reference external" href="https://github.com/PyVRP/PyVRP/pull/245">multiple vehicle types</a>.</p></li>
+<li><p>Support for <a class="reference external" href="https://github.com/PyVRP/PyVRP/pull/411">multiple depots</a>.</p></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2022 - 2025, PyVRP contributors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.1.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.top"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike", "staticVersions": [{"aliases": [], "title": "Development", "version": ""}, {"aliases": [], "title": "v0.10.0", "version": "https://pyvrp.github.io/v0.10.0"}, {"aliases": [], "title": "v0.9.0", "version": "https://pyvrp.github.io/v0.9.0"}, {"aliases": [], "title": "v0.8.1", "version": "https://pyvrp.github.io/v0.8.1"}, {"aliases": [], "title": "v0.7.0", "version": "https://pyvrp.github.io/v0.7.0"}, {"aliases": [], "title": "v0.6.0", "version": "https://pyvrp.github.io/v0.6.0"}, {"aliases": [], "title": "v0.5.0", "version": "https://pyvrp.github.io/v0.5.0"}, {"aliases": [], "title": "v0.4.4", "version": "https://pyvrp.github.io/v0.4.4"}, {"aliases": [], "title": "v0.3.0", "version": "https://pyvrp.github.io/v0.3.0"}, {"aliases": [], "title": "v0.2.1", "version": "https://pyvrp.github.io/v0.2.1"}, {"aliases": [], "title": "v0.1.0", "version": "https://pyvrp.github.io/v0.1.0"}], "versionPath": null}}</script>
+    
+      
+        <script src="../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script id="MathJax-script" src="../_static/mathjax/tex-mml-chtml.js?v=cadf963e"></script>
+    
+  </body>
+</html>
