@@ -1,0 +1,2509 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="repair.html">
+      
+      
+        <link rel="next" href="plotting.html">
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>Search methods - PyVRP 0.12.0 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.acf80fe7f4d9ef9e2.min.css?v=9e56d0d2" />
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="yellow">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pyvrp.search.SearchMethod.SearchMethod" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="PyVRP 0.12.0 documentation" class="md-header__button md-logo" aria-label="PyVRP 0.12.0 documentation" data-md-component="logo">
+      <img src="../_static/icon.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PyVRP 0.12.0 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Search methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="yellow"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PyVRP/PyVRP/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PyVRP
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="PyVRP 0.12.0 documentation" class="md-nav__button md-logo" aria-label="PyVRP 0.12.0 documentation" data-md-component="logo">
+      <img src="../_static/icon.svg" alt="logo">
+    </a>
+    PyVRP 0.12.0 documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PyVRP/PyVRP/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PyVRP
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Getting started</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Getting started</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/introduction_to_vrp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/introduction_to_vrp.rst (reference label)"><span>A brief introduction to VRP</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/introduction_to_hgs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/introduction_to_hgs.rst (reference label)"><span>A brief introduction to HGS</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/installation.rst (reference label)"><span>Installation instructions</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/getting_help.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/getting_help.rst (reference label)"><span>Getting help</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/faq.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/faq.rst (reference label)"><span>FAQ</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/concepts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/concepts.rst (reference label)"><span>Concepts</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/benchmarks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/benchmarks.rst (reference label)"><span>Benchmarks</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/citing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/citing.rst (reference label)"><span>Citing Py<wbr>VRP</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Examples</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Examples</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/quick_tutorial.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/quick_tutorial.ipynb (reference label)"><span>A quick tutorial</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/basic_vrps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/basic_vrps.ipynb (reference label)"><span>Classic VRPs</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/using_pyvrp_components.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/using_pyvrp_components.ipynb (reference label)"><span>Using Py<wbr>VRP’s components</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>API reference</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            <span>API reference</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pyvrp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/pyvrp.rst (reference label)"><span>Py<wbr>VRP</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crossover.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/crossover.rst (reference label)"><span>Crossover operators</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="diversity.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/diversity.rst (reference label)"><span>Diversity measures</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repair.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/repair.rst (reference label)"><span>Repair operators</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/search.rst (reference label)"><span>Search methods</span></span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/search.rst (reference label)"><span>Search methods</span></span>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.SearchMethod.SearchMethod" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.SearchMethod.SearchMethod (Python class) — Protocol that search methods must implement."><span>Search<wbr>Method</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SearchMethod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.SearchMethod.SearchMethod.__call__" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.SearchMethod.SearchMethod.__call__ (Python method) — Search around the given solution, and returns a new solution that is hopefully better."><span>__<wbr>call__<wbr></span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch (Python class) — Local search method. This search method explores a granular neighbourhood in a very efficient manner using user-provided node and route operators. This quickly results in much improved solutions."><span>Local<wbr>Search</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LocalSearch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.add_node_operator (Python method) — Adds a node operator to this local search object. The node operator will be used by search() to improve a solution."><span>add_<wbr>node_<wbr>operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.add_route_operator (Python method) — Adds a route operator to this local search object. The route operator will be used by intensify() to improve a solution using more expensive route operators."><span>add_<wbr>route_<wbr>operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.neighbours" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.neighbours (Python property) — Returns the granular neighbourhood currently used by the local search."><span>neighbours</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.node_operators" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.node_operators (Python property) — Returns the node operators in use."><span>node_<wbr>operators</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.route_operators" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.route_operators (Python property) — Returns the route operators in use."><span>route_<wbr>operators</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.statistics" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.statistics (Python property) — Returns search statistics about the most recently improved solution."><span>statistics</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.__call__" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.__call__ (Python method) — This method uses the search() and intensify() methods to iteratively improve the given solution. First, search() is applied. Thereafter, intensify() is applied. This repeats until no further improvements are found. Finally, the improved solution is returned."><span>__<wbr>call__<wbr></span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.intensify" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><span>intensify</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.search" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><span>search</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search._search.LocalSearchStatistics" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.LocalSearchStatistics (Python class) — Simple data structure that tracks statistics about the number of local search moves applied to the most recently improved solution."><span>Local<wbr>Search<wbr>Statistics</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.neighbourhood.NeighbourhoodParams" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.neighbourhood.NeighbourhoodParams (Python class) — Configuration for calculating a granular neighbourhood."><span>Neighbourhood<wbr>Params</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.neighbourhood.compute_neighbours" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.neighbourhood.compute_neighbours (Python function) — Computes neighbours defining the neighbourhood for a problem instance."><span>compute_<wbr>neighbours</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-operators" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="/api/search.rst#node-operators (reference label)"><span>Node operators</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.NodeOperator" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.NodeOperator (Python class) — !! processed by numpydoc !!"><span>Node<wbr>Operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange10" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange10 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange10</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange20" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange20 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange20</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange30" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange30 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange30</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange11" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange11 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange11</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange21" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange21 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange21</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange31" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange31 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange31</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange22" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange22 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange22</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange32" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange32 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange32</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange33" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange33 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange33</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.RelocateWithDepot" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.RelocateWithDepot (Python class) — Tests if inserting a reload depot while relocating U after V results in an improving move. Concretely, this operator implements the second and third insertion scheme of Francois et al. Rbce50b165a19-1."><span>Relocate<wbr>With<wbr>Depot</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.SwapTails" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.SwapTails (Python class) — Given two nodes U and V, tests whether replacing the arc of U to its successor n(U) and V to n(V) by U \rightarrow n(V) and V \rightarrow n(U) is an improving move."><span>Swap<wbr>Tails</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-operators" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="/api/search.rst#route-operators (reference label)"><span>Route operators</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Route operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.RouteOperator" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.RouteOperator (Python class) — !! processed by numpydoc !!"><span>Route<wbr>Operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.SwapRoutes" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.SwapRoutes (Python class) — This operator evaluates exchanging the visits of two routes U and V."><span>Swap<wbr>Routes</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.SwapStar" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.SwapStar (Python class) — Explores the SWAP* neighbourhood of R6fbb5e500902-1. The SWAP* neighbourhood consists of free form re-insertions of clients U and V in the given routes (so the clients are swapped, but they are not necessarily inserted in the place of the other swapped client)."><span>Swap<wbr>Star</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plotting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/plotting.rst (reference label)"><span>Plotting tools</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stop.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/stop.rst (reference label)"><span>Stopping criteria</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Developing Py<wbr>VRP</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Developing Py<wbr>VRP</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/benchmarking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/benchmarking.rst (reference label)"><span>Benchmarking</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/contributing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/contributing.rst (reference label)"><span>Contributing</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/releasing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/releasing.rst (reference label)"><span>Releasing</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/supported_vrplib_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/supported_vrplib_fields.rst (reference label)"><span>The VRPLIB format</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/new_vrp_variants.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/new_vrp_variants.rst (reference label)"><span>Supporting new VRP variants</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/glossary.rst (reference label)"><span>Glossary</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.SearchMethod.SearchMethod" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.SearchMethod.SearchMethod (Python class) — Protocol that search methods must implement."><span>Search<wbr>Method</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SearchMethod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.SearchMethod.SearchMethod.__call__" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.SearchMethod.SearchMethod.__call__ (Python method) — Search around the given solution, and returns a new solution that is hopefully better."><span>__<wbr>call__<wbr></span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch (Python class) — Local search method. This search method explores a granular neighbourhood in a very efficient manner using user-provided node and route operators. This quickly results in much improved solutions."><span>Local<wbr>Search</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LocalSearch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.add_node_operator (Python method) — Adds a node operator to this local search object. The node operator will be used by search() to improve a solution."><span>add_<wbr>node_<wbr>operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.add_route_operator (Python method) — Adds a route operator to this local search object. The route operator will be used by intensify() to improve a solution using more expensive route operators."><span>add_<wbr>route_<wbr>operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.neighbours" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.neighbours (Python property) — Returns the granular neighbourhood currently used by the local search."><span>neighbours</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.node_operators" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.node_operators (Python property) — Returns the node operators in use."><span>node_<wbr>operators</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.route_operators" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.route_operators (Python property) — Returns the route operators in use."><span>route_<wbr>operators</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.statistics" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.statistics (Python property) — Returns search statistics about the most recently improved solution."><span>statistics</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.__call__" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.__call__ (Python method) — This method uses the search() and intensify() methods to iteratively improve the given solution. First, search() is applied. Thereafter, intensify() is applied. This repeats until no further improvements are found. Finally, the improved solution is returned."><span>__<wbr>call__<wbr></span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.intensify" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><span>intensify</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search.LocalSearch.LocalSearch.search" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><span>search</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search._search.LocalSearchStatistics" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.LocalSearchStatistics (Python class) — Simple data structure that tracks statistics about the number of local search moves applied to the most recently improved solution."><span>Local<wbr>Search<wbr>Statistics</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.neighbourhood.NeighbourhoodParams" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.neighbourhood.NeighbourhoodParams (Python class) — Configuration for calculating a granular neighbourhood."><span>Neighbourhood<wbr>Params</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyvrp.search.neighbourhood.compute_neighbours" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search.neighbourhood.compute_neighbours (Python function) — Computes neighbours defining the neighbourhood for a problem instance."><span>compute_<wbr>neighbours</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-operators" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="/api/search.rst#node-operators (reference label)"><span>Node operators</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.NodeOperator" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.NodeOperator (Python class) — !! processed by numpydoc !!"><span>Node<wbr>Operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange10" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange10 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange10</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange20" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange20 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange20</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange30" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange30 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange30</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange11" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange11 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange11</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange21" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange21 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange21</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange31" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange31 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange31</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange22" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange22 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange22</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange32" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange32 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange32</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.Exchange33" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.Exchange33 (Python class) — The (N, M)-exchange operators exchange N consecutive clients from U&#39;s route (starting at U) with M consecutive clients from V&#39;s route (starting at V). This includes the RELOCATE and SWAP operators as special cases."><span>Exchange33</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.RelocateWithDepot" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.RelocateWithDepot (Python class) — Tests if inserting a reload depot while relocating U after V results in an improving move. Concretely, this operator implements the second and third insertion scheme of Francois et al. Rbce50b165a19-1."><span>Relocate<wbr>With<wbr>Depot</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.SwapTails" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.SwapTails (Python class) — Given two nodes U and V, tests whether replacing the arc of U to its successor n(U) and V to n(V) by U \rightarrow n(V) and V \rightarrow n(U) is an improving move."><span>Swap<wbr>Tails</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-operators" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="/api/search.rst#route-operators (reference label)"><span>Route operators</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Route operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.RouteOperator" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.RouteOperator (Python class) — !! processed by numpydoc !!"><span>Route<wbr>Operator</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.SwapRoutes" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.SwapRoutes (Python class) — This operator evaluates exchanging the visits of two routes U and V."><span>Swap<wbr>Routes</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyvrp.search._search.SwapStar" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="pyvrp.search._search.SwapStar (Python class) — Explores the SWAP* neighbourhood of R6fbb5e500902-1. The SWAP* neighbourhood consists of free form re-insertions of clients U and V in the given routes (so the clients are swapped, but they are not necessarily inserted in the place of the other swapped client)."><span>Swap<wbr>Star</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="search-methods"><span id="module-pyvrp.search"></span>Search methods<a class="headerlink" href="#search-methods" title="Link to this heading">¶</a></h1>
+<p>The <a class="reference internal" href="#module-pyvrp.search" title="pyvrp.search: Search"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvrp.search</span></code></a> module contains classes and search methods responsible for improving a newly created offspring solution.
+This happens just after <a class="reference internal" href="crossover.html#module-pyvrp.crossover" title="pyvrp.crossover: Crossover operators"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvrp.crossover</span></code></a> is performed by the <a class="reference internal" href="pyvrp.html#pyvrp.GeneticAlgorithm.GeneticAlgorithm" title="pyvrp.GeneticAlgorithm.GeneticAlgorithm (Python class) — Creates a GeneticAlgorithm instance."><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneticAlgorithm</span></code></a>.
+PyVRP currently provides a <a class="reference internal" href="#module-pyvrp.search.LocalSearch" title="pyvrp.search.LocalSearch (Python module)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalSearch</span></code></a> method.</p>
+<p>All search methods implement the <a class="reference internal" href="#module-pyvrp.search.SearchMethod" title="pyvrp.search.SearchMethod (Python module)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SearchMethod</span></code></a> protocol.</p>
+<span class="target" id="module-pyvrp.search.SearchMethod"></span><dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.SearchMethod.SearchMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SearchMethod</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span><a class="n reference internal" href="#pyvrp.search.SearchMethod.SearchMethod" title="pyvrp.search.SearchMethod.SearchMethod.__init__.args (Python parameter)"><span class="n"><span class="pre">args</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><a class="n reference internal" href="#pyvrp.search.SearchMethod.SearchMethod" title="pyvrp.search.SearchMethod.SearchMethod.__init__.kwargs (Python parameter)"><span class="n"><span class="pre">kwargs</span></span></a></em></span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/SearchMethod.py#L6"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.SearchMethod.SearchMethod" title="Link to this definition">¶</a></dt>
+<dd><p>Protocol that search methods must implement.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils data align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyvrp.search.SearchMethod.SearchMethod.__call__" title="pyvrp.search.SearchMethod.SearchMethod.__call__ (Python method) — Search around the given solution, and returns a new solution that is hopefully better."><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code></a>(solution, cost_evaluator)</p></td>
+<td><p>Search around the given solution, and returns a new solution that is hopefully better.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.SearchMethod.SearchMethod.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.SearchMethod.SearchMethod.__call__.solution" title="pyvrp.search.SearchMethod.SearchMethod.__call__.solution (Python parameter) — The solution to improve."><span class="n"><span class="pre">solution</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.SearchMethod.SearchMethod.__call__.cost_evaluator" title="pyvrp.search.SearchMethod.SearchMethod.__call__.cost_evaluator (Python parameter) — Cost evaluator to use when evaluating improvements."><span class="n"><span class="pre">cost_evaluator</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance."><span class="pre">CostEvaluator</span></a></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/SearchMethod.py#L11"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.SearchMethod.SearchMethod.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Search around the given solution, and returns a new solution that is
+hopefully better.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.SearchMethod.SearchMethod.__call__.solution"><span class="n sig-name">solution</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions.">Solution</a></span></span><a class="headerlink" href="#pyvrp.search.SearchMethod.SearchMethod.__call__.solution" title="Permalink to this definition">¶</a></dt><dd><p>The solution to improve.</p>
+</dd>
+<dt id="pyvrp.search.SearchMethod.SearchMethod.__call__.cost_evaluator"><span class="n sig-name">cost_evaluator</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance.">CostEvaluator</a></span></span><a class="headerlink" href="#pyvrp.search.SearchMethod.SearchMethod.__call__.cost_evaluator" title="Permalink to this definition">¶</a></dt><dd><p>Cost evaluator to use when evaluating improvements.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The improved solution.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><em>Solution</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-pyvrp.search.LocalSearch"></span><dl class="py class objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.LocalSearch.LocalSearch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LocalSearch</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.__init__.data" title="pyvrp.search.LocalSearch.LocalSearch.__init__.data (Python parameter) — Data object describing the problem to be solved."><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.__init__.rng" title="pyvrp.search.LocalSearch.LocalSearch.__init__.rng (Python parameter) — Random number generator."><span class="n"><span class="pre">rng</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator" title="pyvrp._pyvrp.RandomNumberGenerator (Python class) — This class implements a XOR-shift pseudo-random number generator (RNG). It generates the next number of a sequence by repeatedly taking the 'exclusive or' (the ^ operator) of a number with a bit-shifted version of itself. See here for more details."><span class="pre">RandomNumberGenerator</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.__init__.neighbours" title="pyvrp.search.LocalSearch.LocalSearch.__init__.neighbours (Python parameter) — List of lists that defines the local search neighbourhood."><span class="n"><span class="pre">neighbours</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></em></span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/LocalSearch.py#L15"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch" title="Link to this definition">¶</a></dt>
+<dd><p>Local search method. This search method explores a granular neighbourhood
+in a very efficient manner using user-provided node and route operators.
+This quickly results in much improved solutions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.LocalSearch.LocalSearch.__init__.data"><span class="n sig-name">data</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem.">ProblemData</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.__init__.data" title="Permalink to this definition">¶</a></dt><dd><p>Data object describing the problem to be solved.</p>
+</dd>
+<dt id="pyvrp.search.LocalSearch.LocalSearch.__init__.rng"><span class="n sig-name">rng</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator" title="pyvrp._pyvrp.RandomNumberGenerator (Python class) — This class implements a XOR-shift pseudo-random number generator (RNG). It generates the next number of a sequence by repeatedly taking the 'exclusive or' (the ^ operator) of a number with a bit-shifted version of itself. See here for more details.">RandomNumberGenerator</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.__init__.rng" title="Permalink to this definition">¶</a></dt><dd><p>Random number generator.</p>
+</dd>
+<dt id="pyvrp.search.LocalSearch.LocalSearch.__init__.neighbours"><span class="n sig-name">neighbours</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a><span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a><span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a><span class="p">]</span><span class="p">]</span></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.__init__.neighbours" title="Permalink to this definition">¶</a></dt><dd><p>List of lists that defines the local search neighbourhood.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils data align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.neighbours" title="pyvrp.search.LocalSearch.LocalSearch.neighbours (Python property) — Returns the granular neighbourhood currently used by the local search."><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbours</span></code></a></p></td>
+<td><p>Returns the granular neighbourhood currently used by the local search.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.node_operators" title="pyvrp.search.LocalSearch.LocalSearch.node_operators (Python property) — Returns the node operators in use."><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_operators</span></code></a></p></td>
+<td><p>Returns the node operators in use.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.route_operators" title="pyvrp.search.LocalSearch.LocalSearch.route_operators (Python property) — Returns the route operators in use."><code class="xref py py-obj docutils literal notranslate"><span class="pre">route_operators</span></code></a></p></td>
+<td><p>Returns the route operators in use.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.statistics" title="pyvrp.search.LocalSearch.LocalSearch.statistics (Python property) — Returns search statistics about the most recently improved solution."><code class="xref py py-obj docutils literal notranslate"><span class="pre">statistics</span></code></a></p></td>
+<td><p>Returns search statistics about the most recently improved solution.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils data align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.__call__" title="pyvrp.search.LocalSearch.LocalSearch.__call__ (Python method) — This method uses the search() and intensify() methods to iteratively improve the given solution. First, search() is applied. Thereafter, intensify() is applied. This repeats until no further improvements are found. Finally, the improved solution is returned."><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code></a>(solution, cost_evaluator)</p></td>
+<td><p>This method uses the <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search" title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> and <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify" title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">intensify()</span></code></a> methods to iteratively improve the given solution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator" title="pyvrp.search.LocalSearch.LocalSearch.add_node_operator (Python method) — Adds a node operator to this local search object. The node operator will be used by search() to improve a solution."><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_node_operator</span></code></a>(op)</p></td>
+<td><p>Adds a node operator to this local search object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator" title="pyvrp.search.LocalSearch.LocalSearch.add_route_operator (Python method) — Adds a route operator to this local search object. The route operator will be used by intensify() to improve a solution using more expensive route operators."><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_route_operator</span></code></a>(op)</p></td>
+<td><p>Adds a route operator to this local search object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify" title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><code class="xref py py-obj docutils literal notranslate"><span class="pre">intensify</span></code></a>(solution, cost_evaluator)</p></td>
+<td><p>This method uses the intensifying route operators on this local search object to improve the given solution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search" title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><code class="xref py py-obj docutils literal notranslate"><span class="pre">search</span></code></a>(solution, cost_evaluator)</p></td>
+<td><p>This method uses the node operators on this local search object to improve the given solution.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.LocalSearch.LocalSearch.add_node_operator">
+<span class="sig-name descname"><span class="pre">add_node_operator</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator.op" title="pyvrp.search.LocalSearch.LocalSearch.add_node_operator.op (Python parameter) — The node operator to add to this local search object."><span class="n"><span class="pre">op</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="#pyvrp.search._search.NodeOperator" title="pyvrp.search._search.NodeOperator (Python class) — !! processed by numpydoc !!"><span class="pre">NodeOperator</span></a></span></span></em></span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/LocalSearch.py#L40"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a node operator to this local search object. The node operator
+will be used by <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search" title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> to improve a solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.LocalSearch.LocalSearch.add_node_operator.op"><span class="n sig-name">op</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="#pyvrp.search._search.NodeOperator" title="pyvrp.search._search.NodeOperator (Python class) — !! processed by numpydoc !!">NodeOperator</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator.op" title="Permalink to this definition">¶</a></dt><dd><p>The node operator to add to this local search object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.LocalSearch.LocalSearch.add_route_operator">
+<span class="sig-name descname"><span class="pre">add_route_operator</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator.op" title="pyvrp.search.LocalSearch.LocalSearch.add_route_operator.op (Python parameter) — The route operator to add to this local search object."><span class="n"><span class="pre">op</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="#pyvrp.search._search.RouteOperator" title="pyvrp.search._search.RouteOperator (Python class) — !! processed by numpydoc !!"><span class="pre">RouteOperator</span></a></span></span></em></span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/LocalSearch.py#L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a route operator to this local search object. The route operator
+will be used by <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify" title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">intensify()</span></code></a> to improve a solution using more
+expensive route operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.LocalSearch.LocalSearch.add_route_operator.op"><span class="n sig-name">op</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="#pyvrp.search._search.RouteOperator" title="pyvrp.search._search.RouteOperator (Python class) — !! processed by numpydoc !!">RouteOperator</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator.op" title="Permalink to this definition">¶</a></dt><dd><p>The route operator to add to this local search object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.LocalSearch.LocalSearch.neighbours">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">neighbours</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.neighbours" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the granular neighbourhood currently used by the local search.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.LocalSearch.LocalSearch.node_operators">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">node_operators</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyvrp.search._search.NodeOperator" title="pyvrp.search._search.NodeOperator (Python class) — !! processed by numpydoc !!"><span class="pre">NodeOperator</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.node_operators" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the node operators in use.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.LocalSearch.LocalSearch.route_operators">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">route_operators</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyvrp.search._search.RouteOperator" title="pyvrp.search._search.RouteOperator (Python class) — !! processed by numpydoc !!"><span class="pre">RouteOperator</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.route_operators" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the route operators in use.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.LocalSearch.LocalSearch.statistics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">statistics</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><a class="reference internal" href="#pyvrp.search._search.LocalSearchStatistics" title="pyvrp.search._search.LocalSearchStatistics (Python class) — Simple data structure that tracks statistics about the number of local search moves applied to the most recently improved solution."><span class="pre">LocalSearchStatistics</span></a></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.statistics" title="Link to this definition">¶</a></dt>
+<dd><p>Returns search statistics about the most recently improved solution.</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.LocalSearch.LocalSearch.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.__call__.solution" title="pyvrp.search.LocalSearch.LocalSearch.__call__.solution (Python parameter) — The solution to improve through local search."><span class="n"><span class="pre">solution</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.__call__.cost_evaluator" title="pyvrp.search.LocalSearch.LocalSearch.__call__.cost_evaluator (Python parameter) — Cost evaluator to use."><span class="n"><span class="pre">cost_evaluator</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance."><span class="pre">CostEvaluator</span></a></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/LocalSearch.py#L101"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>This method uses the <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search" title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> and <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify" title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">intensify()</span></code></a> methods to
+iteratively improve the given solution. First, <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search" title="pyvrp.search.LocalSearch.LocalSearch.search (Python method) — This method uses the node operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> is
+applied. Thereafter, <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify" title="pyvrp.search.LocalSearch.LocalSearch.intensify (Python method) — This method uses the intensifying route operators on this local search object to improve the given solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">intensify()</span></code></a> is applied. This repeats until
+no further improvements are found. Finally, the improved solution is
+returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.LocalSearch.LocalSearch.__call__.solution"><span class="n sig-name">solution</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions.">Solution</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.__call__.solution" title="Permalink to this definition">¶</a></dt><dd><p>The solution to improve through local search.</p>
+</dd>
+<dt id="pyvrp.search.LocalSearch.LocalSearch.__call__.cost_evaluator"><span class="n sig-name">cost_evaluator</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance.">CostEvaluator</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.__call__.cost_evaluator" title="Permalink to this definition">¶</a></dt><dd><p>Cost evaluator to use.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The improved solution. This is not the same object as the
+solution that was passed in.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><em>Solution</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.LocalSearch.LocalSearch.intensify">
+<span class="sig-name descname"><span class="pre">intensify</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify.solution" title="pyvrp.search.LocalSearch.LocalSearch.intensify.solution (Python parameter) — The solution to improve."><span class="n"><span class="pre">solution</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.intensify.cost_evaluator" title="pyvrp.search.LocalSearch.LocalSearch.intensify.cost_evaluator (Python parameter) — Cost evaluator to use."><span class="n"><span class="pre">cost_evaluator</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance."><span class="pre">CostEvaluator</span></a></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/LocalSearch.py#L129"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.intensify" title="Link to this definition">¶</a></dt>
+<dd><p>This method uses the intensifying route operators on this local search
+object to improve the given solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.LocalSearch.LocalSearch.intensify.solution"><span class="n sig-name">solution</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions.">Solution</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.intensify.solution" title="Permalink to this definition">¶</a></dt><dd><p>The solution to improve.</p>
+</dd>
+<dt id="pyvrp.search.LocalSearch.LocalSearch.intensify.cost_evaluator"><span class="n sig-name">cost_evaluator</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance.">CostEvaluator</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.intensify.cost_evaluator" title="Permalink to this definition">¶</a></dt><dd><p>Cost evaluator to use.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The improved solution. This is not the same object as the
+solution that was passed in.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><em>Solution</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.LocalSearch.LocalSearch.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search.solution" title="pyvrp.search.LocalSearch.LocalSearch.search.solution (Python parameter) — The solution to improve."><span class="n"><span class="pre">solution</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.search.cost_evaluator" title="pyvrp.search.LocalSearch.LocalSearch.search.cost_evaluator (Python parameter) — Cost evaluator to use."><span class="n"><span class="pre">cost_evaluator</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance."><span class="pre">CostEvaluator</span></a></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><span class="pre">Solution</span></a></span></span></span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/LocalSearch.py#L154"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.search" title="Link to this definition">¶</a></dt>
+<dd><p>This method uses the node operators on this local search object to
+improve the given solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.LocalSearch.LocalSearch.search.solution"><span class="n sig-name">solution</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions.">Solution</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.search.solution" title="Permalink to this definition">¶</a></dt><dd><p>The solution to improve.</p>
+</dd>
+<dt id="pyvrp.search.LocalSearch.LocalSearch.search.cost_evaluator"><span class="n sig-name">cost_evaluator</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.CostEvaluator" title="pyvrp._pyvrp.CostEvaluator (Python class) — Creates a CostEvaluator instance.">CostEvaluator</a></span></span><a class="headerlink" href="#pyvrp.search.LocalSearch.LocalSearch.search.cost_evaluator" title="Permalink to this definition">¶</a></dt><dd><p>Cost evaluator to use.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The improved solution. This is not the same object as the
+solution that was passed in.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.Solution" title="pyvrp._pyvrp.Solution (Python class) — Encodes VRP solutions."><em>Solution</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-pyvrp.search._search"></span><dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.LocalSearchStatistics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LocalSearchStatistics</span></span><a class="headerlink" href="#pyvrp.search._search.LocalSearchStatistics" title="Link to this definition">¶</a></dt>
+<dd><p>Simple data structure that tracks statistics about the number of local
+search moves applied to the most recently improved solution.</p>
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.LocalSearchStatistics.num_moves">
+<span class="sig-name descname"><span class="pre">num_moves</span></span><a class="headerlink" href="#pyvrp.search._search.LocalSearchStatistics.num_moves" title="Link to this definition">¶</a></dt>
+<dd><p>Number of evaluated node and route operator moves.</p>
+</dd></dl>
+
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.LocalSearchStatistics.num_improving">
+<span class="sig-name descname"><span class="pre">num_improving</span></span><a class="headerlink" href="#pyvrp.search._search.LocalSearchStatistics.num_improving" title="Link to this definition">¶</a></dt>
+<dd><p>Number of evaluated moves that led to an objective improvement.</p>
+</dd></dl>
+
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.LocalSearchStatistics.num_updates">
+<span class="sig-name descname"><span class="pre">num_updates</span></span><a class="headerlink" href="#pyvrp.search._search.LocalSearchStatistics.num_updates" title="Link to this definition">¶</a></dt>
+<dd><p>Total number of changes to the solution. This always includes the
+number of evaluated improving moves, but also e.g. insertion of
+required but missing clients.</p>
+</dd></dl>
+
+<p class="rubric">Attributes</p>
+<table class="docutils data align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>num_improving</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>num_moves</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>num_updates</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-pyvrp.search.neighbourhood"></span><dl class="py class objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.neighbourhood.NeighbourhoodParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NeighbourhoodParams</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams.__init__.weight_wait_time (Python parameter)"><span class="n"><span class="pre">weight_wait_time</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mf">0.2</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams.__init__.weight_time_warp (Python parameter)"><span class="n"><span class="pre">weight_time_warp</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mf">1.0</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams.__init__.num_neighbours (Python parameter)"><span class="n"><span class="pre">num_neighbours</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mi">40</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams.__init__.symmetric_proximity (Python parameter)"><span class="n"><span class="pre">symmetric_proximity</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">True</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams.__init__.symmetric_neighbours (Python parameter)"><span class="n"><span class="pre">symmetric_neighbours</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">False</span></code></em></span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/neighbourhood.py#L12"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for calculating a granular neighbourhood.</p>
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.neighbourhood.NeighbourhoodParams.weight_wait_time">
+<span class="sig-name descname"><span class="pre">weight_wait_time</span></span><a class="headerlink" href="#pyvrp.search.neighbourhood.NeighbourhoodParams.weight_wait_time" title="Link to this definition">¶</a></dt>
+<dd><p>Penalty weight given to the minimum wait time aspect of the proximity
+calculation. A large wait time indicates the clients are far apart
+in duration/time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.neighbourhood.NeighbourhoodParams.weight_time_warp">
+<span class="sig-name descname"><span class="pre">weight_time_warp</span></span><a class="headerlink" href="#pyvrp.search.neighbourhood.NeighbourhoodParams.weight_time_warp" title="Link to this definition">¶</a></dt>
+<dd><p>Penalty weight given to the minimum time warp aspect of the proximity
+calculation. A large time warp indicates the clients are far apart in
+duration/time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.neighbourhood.NeighbourhoodParams.num_neighbours">
+<span class="sig-name descname"><span class="pre">num_neighbours</span></span><a class="headerlink" href="#pyvrp.search.neighbourhood.NeighbourhoodParams.num_neighbours" title="Link to this definition">¶</a></dt>
+<dd><p>Number of other clients that are in each client’s granular
+neighbourhood. This parameter determines the size of the overall
+neighbourhood.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.neighbourhood.NeighbourhoodParams.symmetric_proximity">
+<span class="sig-name descname"><span class="pre">symmetric_proximity</span></span><a class="headerlink" href="#pyvrp.search.neighbourhood.NeighbourhoodParams.symmetric_proximity" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to calculate a symmetric proximity matrix. This ensures edge
+<span class="math notranslate nohighlight">\((i, j)\)</span> is given the same weight as <span class="math notranslate nohighlight">\((j, i)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search.neighbourhood.NeighbourhoodParams.symmetric_neighbours">
+<span class="sig-name descname"><span class="pre">symmetric_neighbours</span></span><a class="headerlink" href="#pyvrp.search.neighbourhood.NeighbourhoodParams.symmetric_neighbours" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to symmetrise the neighbourhood structure. This ensures that
+when edge <span class="math notranslate nohighlight">\((i, j)\)</span> is in, then so is <span class="math notranslate nohighlight">\((j, i)\)</span>. Note that
+this is <em>not</em> the same as <code class="docutils literal notranslate"><span class="pre">symmetric_proximity</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – When <code class="docutils literal notranslate"><span class="pre">num_neighbours</span></code> is non-positive.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search.neighbourhood.compute_neighbours">
+<span class="sig-name descname"><span class="pre">compute_neighbours</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.compute_neighbours.data" title="pyvrp.search.neighbourhood.compute_neighbours.data (Python parameter) — ProblemData for which to compute the neighbourhood."><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search.neighbourhood.compute_neighbours.params" title="pyvrp.search.neighbourhood.compute_neighbours.params (Python parameter) — NeighbourhoodParams that define how the neighbourhood is computed."><span class="n"><span class="pre">params</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams (Python class) — Configuration for calculating a granular neighbourhood."><span class="pre">NeighbourhoodParams</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="n">NeighbourhoodParams</span><span class="p">()</span></code></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></span><a class="reference external" href="https://github.com/PyVRP/PyVRP//blob/bd7194a/pyvrp/search/neighbourhood.py#L56"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvrp.search.neighbourhood.compute_neighbours" title="Link to this definition">¶</a></dt>
+<dd><p>Computes neighbours defining the neighbourhood for a problem instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="pyvrp.search.neighbourhood.compute_neighbours.data"><span class="n sig-name">data</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem.">ProblemData</a></span></span><a class="headerlink" href="#pyvrp.search.neighbourhood.compute_neighbours.data" title="Permalink to this definition">¶</a></dt><dd><p>ProblemData for which to compute the neighbourhood.</p>
+</dd>
+<dt id="pyvrp.search.neighbourhood.compute_neighbours.params"><span class="n sig-name">params</span><span class="p">:</span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="#pyvrp.search.neighbourhood.NeighbourhoodParams" title="pyvrp.search.neighbourhood.NeighbourhoodParams (Python class) — Configuration for calculating a granular neighbourhood.">NeighbourhoodParams</a></span></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="n">NeighbourhoodParams</span><span class="p">()</span></code><a class="headerlink" href="#pyvrp.search.neighbourhood.compute_neighbours.params" title="Permalink to this definition">¶</a></dt><dd><p>NeighbourhoodParams that define how the neighbourhood is computed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of list of integers representing the neighbours for each client.
+The first lists in the lower indices are associated with the depots and
+are all empty.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<h2 id="node-operators">Node operators<a class="headerlink" href="#node-operators" title="Link to this heading">¶</a></h2>
+<p>Instances of these operators can be added to the <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch" title="pyvrp.search.LocalSearch.LocalSearch (Python class) — Local search method. This search method explores a granular neighbourhood in a very efficient manner using user-provided node and route operators. This quickly results in much improved solutions."><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalSearch</span></code></a> object via the <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.add_node_operator" title="pyvrp.search.LocalSearch.LocalSearch.add_node_operator (Python method) — Adds a node operator to this local search object. The node operator will be used by search() to improve a solution."><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_node_operator()</span></code></a> method.
+Each node operator inherits from <a class="reference internal" href="#pyvrp.search._search.NodeOperator" title="pyvrp.search._search.NodeOperator (Python class) — !! processed by numpydoc !!"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOperator</span></code></a>.
+As a convenience, the <a class="reference internal" href="#module-pyvrp.search" title="pyvrp.search: Search"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvrp.search</span></code></a> module makes most relevant operators available as <code class="docutils literal notranslate"><span class="pre">NODE_OPERATORS</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyvrp.search</span><span class="w"> </span><span class="kn">import</span> <span class="n">NODE_OPERATORS</span>
+</code></pre></div>
+</div>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.NodeOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NodeOperator</span></span><a class="headerlink" href="#pyvrp.search._search.NodeOperator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange10">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange10</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange10" title="pyvrp.search._search.Exchange10.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange10" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange20">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange20</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange20" title="pyvrp.search._search.Exchange20.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange20" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange30">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange30</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange30" title="pyvrp.search._search.Exchange30.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange30" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange11">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange11</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange11" title="pyvrp.search._search.Exchange11.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange11" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange21">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange21</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange21" title="pyvrp.search._search.Exchange21.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange21" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange31">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange31</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange31" title="pyvrp.search._search.Exchange31.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange31" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange22">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange22</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange22" title="pyvrp.search._search.Exchange22.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange22" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange32">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange32</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange32" title="pyvrp.search._search.Exchange32.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange32" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.Exchange33">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exchange33</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.Exchange33" title="pyvrp.search._search.Exchange33.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.Exchange33" title="Link to this definition">¶</a></dt>
+<dd><p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange operators exchange <span class="math notranslate nohighlight">\(N\)</span> consecutive clients
+from <span class="math notranslate nohighlight">\(U\)</span>’s route (starting at <span class="math notranslate nohighlight">\(U\)</span>) with <span class="math notranslate nohighlight">\(M\)</span> consecutive
+clients from <span class="math notranslate nohighlight">\(V\)</span>’s route (starting at <span class="math notranslate nohighlight">\(V\)</span>). This includes
+the RELOCATE and SWAP operators as special cases.</p>
+<p>The <span class="math notranslate nohighlight">\((N, M)\)</span>-exchange class uses C++ templates for different <span class="math notranslate nohighlight">\(N\)</span>
+and <span class="math notranslate nohighlight">\(M\)</span> to efficiently evaluate these moves.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.RelocateWithDepot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RelocateWithDepot</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.RelocateWithDepot" title="pyvrp.search._search.RelocateWithDepot.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.RelocateWithDepot" title="Link to this definition">¶</a></dt>
+<dd><p>Tests if inserting a reload depot while relocating <span class="math notranslate nohighlight">\(U\)</span> after <span class="math notranslate nohighlight">\(V\)</span>
+results in an improving move. Concretely, this operator implements the second
+and third insertion scheme of Francois et al. <a class="reference internal" href="#rbce50b165a19-1" id="id1">[1]</a>.</p>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="rbce50b165a19-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Francois, V., Y. Arda, and Y. Crama (2019). Adaptive Large
+Neighborhood Search for Multitrip Vehicle Routing with Time Windows.
+<em>Transportation Science</em>, 53(6): 1706 - 1730.
+<a class="reference external" href="https://doi.org/10.1287/trsc.2019.0909">https://doi.org/10.1287/trsc.2019.0909</a>.</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.SwapTails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SwapTails</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.SwapTails" title="pyvrp.search._search.SwapTails.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.SwapTails" title="Link to this definition">¶</a></dt>
+<dd><p>Given two nodes <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, tests whether replacing the arc of
+<span class="math notranslate nohighlight">\(U\)</span> to its successor <span class="math notranslate nohighlight">\(n(U)\)</span> and <span class="math notranslate nohighlight">\(V\)</span> to <span class="math notranslate nohighlight">\(n(V)\)</span> by
+<span class="math notranslate nohighlight">\(U \rightarrow n(V)\)</span> and <span class="math notranslate nohighlight">\(V \rightarrow n(U)\)</span> is an improving
+move.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>This operator is also known as 2-OPT* in the VRP literature.</p>
+</div>
+</dd></dl>
+
+<h2 id="route-operators">Route operators<a class="headerlink" href="#route-operators" title="Link to this heading">¶</a></h2>
+<p>Instances of these operators can be added to the <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch" title="pyvrp.search.LocalSearch.LocalSearch (Python class) — Local search method. This search method explores a granular neighbourhood in a very efficient manner using user-provided node and route operators. This quickly results in much improved solutions."><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalSearch</span></code></a> object via the <a class="reference internal" href="#pyvrp.search.LocalSearch.LocalSearch.add_route_operator" title="pyvrp.search.LocalSearch.LocalSearch.add_route_operator (Python method) — Adds a route operator to this local search object. The route operator will be used by intensify() to improve a solution using more expensive route operators."><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route_operator()</span></code></a> method.
+Each route operator inherits from <a class="reference internal" href="#pyvrp.search._search.RouteOperator" title="pyvrp.search._search.RouteOperator (Python class) — !! processed by numpydoc !!"><code class="xref py py-class docutils literal notranslate"><span class="pre">RouteOperator</span></code></a>.
+As a convenience, the <a class="reference internal" href="#module-pyvrp.search" title="pyvrp.search: Search"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvrp.search</span></code></a> module makes these operators available as <code class="docutils literal notranslate"><span class="pre">ROUTE_OPERATORS</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyvrp.search</span><span class="w"> </span><span class="kn">import</span> <span class="n">ROUTE_OPERATORS</span>
+</code></pre></div>
+</div>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.RouteOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RouteOperator</span></span><a class="headerlink" href="#pyvrp.search._search.RouteOperator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="pyvrp.search._search.SwapRoutes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SwapRoutes</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.SwapRoutes" title="pyvrp.search._search.SwapRoutes.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.SwapRoutes" title="Link to this definition">¶</a></dt>
+<dd><p>This operator evaluates exchanging the visits of two routes <span class="math notranslate nohighlight">\(U\)</span> and
+<span class="math notranslate nohighlight">\(V\)</span>.</p>
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="pyvrp.search._search.SwapStar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SwapStar</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.SwapStar" title="pyvrp.search._search.SwapStar.__init__.data (Python parameter)"><span class="n"><span class="pre">data</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="pyvrp.html#pyvrp._pyvrp.ProblemData" title="pyvrp._pyvrp.ProblemData (Python class) — Creates a problem data instance. This instance contains all information needed to solve the vehicle routing problem."><span class="pre">ProblemData</span></a></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#pyvrp.search._search.SwapStar" title="pyvrp.search._search.SwapStar.__init__.overlap_tolerance (Python parameter)"><span class="n"><span class="pre">overlap_tolerance</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mf">0.05</span></code></em></span><span class="sig-paren">)</span><a class="headerlink" href="#pyvrp.search._search.SwapStar" title="Link to this definition">¶</a></dt>
+<dd><p>Explores the SWAP* neighbourhood of <a class="reference internal" href="#r6fbb5e500902-1" id="id2">[1]</a>. The SWAP* neighbourhood consists
+of free form re-insertions of clients <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> in the given
+routes (so the clients are swapped, but they are not necessarily inserted
+in the place of the other swapped client).</p>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="r6fbb5e500902-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Thibaut Vidal. 2022. Hybrid genetic search for the CVRP: Open-source
+implementation and SWAP* neighborhood. <em>Comput. Oper. Res</em>. 140.
+<a class="reference external" href="https://doi.org/10.1016/j.cor.2021.105643">https://doi.org/10.1016/j.cor.2021.105643</a></p>
+</div>
+</div>
+</dd></dl>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2022 - 2025, PyVRP contributors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.1.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.top", "content.code.copy"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike", "staticVersions": [{"aliases": [], "title": "Development", "version": ""}, {"aliases": [], "title": "v0.11.0", "version": "https://pyvrp.github.io/v0.11.0"}, {"aliases": [], "title": "v0.10.0", "version": "https://pyvrp.github.io/v0.10.0"}, {"aliases": [], "title": "v0.9.0", "version": "https://pyvrp.github.io/v0.9.0"}, {"aliases": [], "title": "v0.8.1", "version": "https://pyvrp.github.io/v0.8.1"}, {"aliases": [], "title": "v0.7.0", "version": "https://pyvrp.github.io/v0.7.0"}, {"aliases": [], "title": "v0.6.0", "version": "https://pyvrp.github.io/v0.6.0"}, {"aliases": [], "title": "v0.5.0", "version": "https://pyvrp.github.io/v0.5.0"}, {"aliases": [], "title": "v0.4.4", "version": "https://pyvrp.github.io/v0.4.4"}, {"aliases": [], "title": "v0.3.0", "version": "https://pyvrp.github.io/v0.3.0"}, {"aliases": [], "title": "v0.2.1", "version": "https://pyvrp.github.io/v0.2.1"}, {"aliases": [], "title": "v0.1.0", "version": "https://pyvrp.github.io/v0.1.0"}], "versionPath": null}}</script>
+    
+      
+        <script src="../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script id="MathJax-script" src="../_static/mathjax/tex-mml-chtml.js?v=cadf963e"></script>
+    
+  </body>
+</html>
