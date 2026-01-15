@@ -1,0 +1,2290 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>Index - PyVRP 0.13.1 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="_static/sphinx_immaterial_theme.acf80fe7f4d9ef9e2.min.css?v=9e56d0d2" />
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="yellow">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="PyVRP 0.13.1 documentation" class="md-header__button md-logo" aria-label="PyVRP 0.13.1 documentation" data-md-component="logo">
+      <img src="_static/icon.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PyVRP 0.13.1 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Index
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="yellow"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PyVRP/PyVRP/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PyVRP
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="PyVRP 0.13.1 documentation" class="md-nav__button md-logo" aria-label="PyVRP 0.13.1 documentation" data-md-component="logo">
+      <img src="_static/icon.svg" alt="logo">
+    </a>
+    PyVRP 0.13.1 documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PyVRP/PyVRP/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PyVRP
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Getting started</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Getting started</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/introduction_to_vrp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/introduction_to_vrp.rst (reference label)"><span>A brief introduction to VRP</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/introduction_to_ils.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/introduction_to_ils.rst (reference label)"><span>A brief introduction to ILS</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/installation.rst (reference label)"><span>Installation instructions</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/getting_help.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/getting_help.rst (reference label)"><span>Getting help</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/faq.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/faq.rst (reference label)"><span>FAQ</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/concepts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/concepts.rst (reference label)"><span>Concepts</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/benchmarks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/benchmarks.rst (reference label)"><span>Benchmarks</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup/citing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/setup/citing.rst (reference label)"><span>Citing Py<wbr>VRP</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Examples</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Examples</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/quick_tutorial.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/quick_tutorial.ipynb (reference label)"><span>A quick tutorial</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/basic_vrps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/basic_vrps.ipynb (reference label)"><span>Classic VRPs</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/using_pyvrp_components.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/examples/using_pyvrp_components.ipynb (reference label)"><span>Using Py<wbr>VRP’s components</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>API reference</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            <span>API reference</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/pyvrp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/pyvrp.rst (reference label)"><span>Py<wbr>VRP</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/search.rst (reference label)"><span>Search methods</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/plotting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/plotting.rst (reference label)"><span>Plotting tools</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/stop.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/api/stop.rst (reference label)"><span>Stopping criteria</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Developing Py<wbr>VRP</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Developing Py<wbr>VRP</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/benchmarking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/benchmarking.rst (reference label)"><span>Benchmarking</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/contributing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/contributing.rst (reference label)"><span>Contributing</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/releasing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/releasing.rst (reference label)"><span>Releasing</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/supported_vrplib_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/supported_vrplib_fields.rst (reference label)"><span>The VRPLIB format</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/new_vrp_variants.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/new_vrp_variants.rst (reference label)"><span>Supporting new VRP variants</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span title="/dev/glossary.rst (reference label)"><span>Glossary</span></span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__and__">__and__() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.__call__">__call__() (LocalSearch method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator.__call__">(RandomNumberGenerator method)</a>
+</li>
+        <li><a href="api/search.html#pyvrp.search.SearchMethod.SearchMethod.__call__">(SearchMethod method)</a>
+</li>
+        <li><a href="api/stop.html#pyvrp.stop.StoppingCriterion.StoppingCriterion.__call__">(StoppingCriterion method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__eq__">__eq__() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__getitem__">__getitem__() (DynamicBitset method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__invert__">__invert__() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.__iter__">__iter__() (ClientGroup method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp.Statistics.Statistics.__iter__">(Statistics method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.__len__">__len__() (ClientGroup method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__len__">(DynamicBitset method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__or__">__or__() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__setitem__">__setitem__() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.__xor__">__xor__() (DynamicBitset method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.add_client">add_client() (ClientGroup method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp.Model.Model.add_client">(Model method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.add_client_group">add_client_group() (Model method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.add_depot">add_depot() (Model method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.add_edge">add_edge() (Model method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp.Model.Profile.add_edge">(Profile method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.add_node_operator">add_node_operator() (LocalSearch method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.add_profile">add_profile() (Model method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.add_route_operator">add_route_operator() (LocalSearch method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.add_vehicle_type">add_vehicle_type() (Model method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.all">all() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.any">any() (DynamicBitset method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dev/supported_vrplib_fields.html#term-BACKHAUL_SECTION"><strong>BACKHAUL_SECTION</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dev/supported_vrplib_fields.html#term-CAPACITY"><strong>CAPACITY</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.capacity">capacity (VehicleType attribute)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-CAPACITY_SECTION"><strong>CAPACITY_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.centroid">centroid() (ProblemData method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.centroid">(Route method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.centroid">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.clear">clear() (ClientGroup method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client">Client (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup">ClientGroup (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.clients">clients (ClientGroup attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp.Model.Model.clients">(Model property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.clients">clients() (ProblemData method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Statistics.Statistics.collect">collect() (Statistics method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.compute_neighbours">compute_neighbours() (in module pyvrp.search.neighbourhood)</a>
+</li>
+      <li><a href="dev/glossary.html#term-Concatenation-scheme"><strong>Concatenation scheme</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.CostEvaluator.cost">cost() (CostEvaluator method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp.Result.Result.cost">(Result method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyManager.cost_evaluator">cost_evaluator() (PenaltyManager method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.CostEvaluator">CostEvaluator (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.count">count() (DynamicBitset method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.data">data() (Model method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.delivery">delivery (Client attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.delivery">delivery() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.delivery">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="dev/supported_vrplib_fields.html#term-DEMAND_SECTION"><strong>DEMAND_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot">Depot (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-DEPOT_SECTION"><strong>DEPOT_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.depots">depots (Model property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.depots">depots() (ProblemData method)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-DIMENSION"><strong>DIMENSION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.CostEvaluator.dist_penalty">dist_penalty() (CostEvaluator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.distance">distance() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.distance">(Solution method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.distance">(Trip method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.distance_cost">distance_cost() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.distance_cost">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.distance_matrices">distance_matrices() (ProblemData method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.distance_matrix">distance_matrix() (ProblemData method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.duration">duration() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.duration">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.duration_cost">duration_cost() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.duration_cost">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.duration_matrices">duration_matrices() (ProblemData method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.duration_matrix">duration_matrix() (ProblemData method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset">DynamicBitset (class in pyvrp._pyvrp)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Edge">Edge (class in pyvrp.Model)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-EDGE_WEIGHT_FORMAT"><strong>EDGE_WEIGHT_FORMAT</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-EDGE_WEIGHT_SECTION"><strong>EDGE_WEIGHT_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-EDGE_WEIGHT_TYPE"><strong>EDGE_WEIGHT_TYPE</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.end_depot">end_depot (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.end_depot">end_depot() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.end_depot">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.end_service">end_service (ScheduledVisit attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.end_time">end_time() (Route method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.excess_distance">excess_distance() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.excess_distance">(Solution method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.excess_load">excess_load() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.excess_load">(Solution method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.excess_load">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange10">Exchange10 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange11">Exchange11 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange20">Exchange20 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange21">Exchange21 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange22">Exchange22 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange30">Exchange30 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange31">Exchange31 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange32">Exchange32 (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.Exchange33">Exchange33 (class in pyvrp.search._search)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.feas_tolerance">feas_tolerance (PenaltyParams attribute)</a>
+</li>
+      <li><a href="api/stop.html#pyvrp.stop.FirstFeasible.FirstFeasible">FirstFeasible (class in pyvrp.stop.FirstFeasible)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.fixed_cost">fixed_cost (VehicleType attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.fixed_vehicle_cost">fixed_vehicle_cost() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Statistics.Statistics.from_csv">from_csv() (Statistics class method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.from_data">from_data() (Model class method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.solve.SolveParams.from_file">from_file() (SolveParams class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.group">group (Client attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.group">group() (ProblemData method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.groups">groups (Model property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.groups">groups() (ProblemData method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.has_excess_distance">has_excess_distance() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.has_excess_distance">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.has_excess_load">has_excess_load() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.has_excess_load">(Solution method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.has_excess_load">(Trip method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.has_time_warp">has_time_warp() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.has_time_warp">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.has_time_windows">has_time_windows() (ProblemData method)</a>
+</li>
+      <li><a href="setup/faq.html#term-How-can-I-model-vehicle-specific-service-durations"><strong>How can I model vehicle-specific service durations?</strong></a>
+</li>
+      <li><a href="setup/faq.html#term-How-do-I-compile-PyVRP-from-source-on-Windows-machines"><strong>How do I compile PyVRP from source on Windows machines?</strong></a>
+</li>
+      <li><a href="setup/faq.html#term-How-do-I-install-the-latest-PyVRP-from-main-without-having-to-compile-things-myself"><strong>How do I install the latest PyVRP from main without having to compile things myself?</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyManager.init_from">init_from() (PenaltyManager class method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.initial_load">initial_load (VehicleType attribute)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.intensify">intensify() (LocalSearch method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.is_complete">is_complete() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Result.Result.is_feasible">is_feasible() (Result method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.is_feasible">(Route method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.is_feasible">(Solution method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.is_group_feasible">is_group_feasible() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.IteratedLocalSearch.IteratedLocalSearch">IteratedLocalSearch (class in pyvrp.IteratedLocalSearch)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.IteratedLocalSearch.IteratedLocalSearchParams">IteratedLocalSearchParams (class in pyvrp.IteratedLocalSearch)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dev/supported_vrplib_fields.html#term-LINEHAUL_SECTION"><strong>LINEHAUL_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.load">load() (Trip method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.CostEvaluator.load_penalty">load_penalty() (CostEvaluator method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch">LocalSearch (class in pyvrp.search.LocalSearch)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/search.html#pyvrp.search._search.LocalSearchStatistics">LocalSearchStatistics (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.location">location (ScheduledVisit attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.location">location() (ProblemData method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.locations">locations (Model property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.make_random">make_random() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator.max">max() (RandomNumberGenerator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyManager.max_cost_evaluator">max_cost_evaluator() (PenaltyManager method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.max_distance">max_distance (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.max_duration">max_duration (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.max_overtime">max_overtime (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.max_penalty">max_penalty (PenaltyParams attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.max_reloads">max_reloads (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.constants.MAX_VALUE">MAX_VALUE (in module pyvrp.constants)</a>
+</li>
+      <li><a href="api/stop.html#pyvrp.stop.MaxIterations.MaxIterations">MaxIterations (class in pyvrp.stop.MaxIterations)</a>
+</li>
+      <li><a href="api/stop.html#pyvrp.stop.MaxRuntime.MaxRuntime">MaxRuntime (class in pyvrp.stop.MaxRuntime)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator.min">min() (RandomNumberGenerator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.min_penalty">min_penalty (PenaltyParams attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.minimise_fleet.minimise_fleet">minimise_fleet() (in module pyvrp.minimise_fleet)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model">Model (class in pyvrp.Model)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp">pyvrp</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp._pyvrp">pyvrp._pyvrp</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.constants">pyvrp.constants</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.exceptions">pyvrp.exceptions</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.IteratedLocalSearch">pyvrp.IteratedLocalSearch</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.minimise_fleet">pyvrp.minimise_fleet</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.Model">pyvrp.Model</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.PenaltyManager">pyvrp.PenaltyManager</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting">pyvrp.plotting</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_coordinates">pyvrp.plotting.plot_coordinates</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_demands">pyvrp.plotting.plot_demands</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_instance">pyvrp.plotting.plot_instance</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_objectives">pyvrp.plotting.plot_objectives</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_result">pyvrp.plotting.plot_result</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_route_schedule">pyvrp.plotting.plot_route_schedule</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_runtimes">pyvrp.plotting.plot_runtimes</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_solution">pyvrp.plotting.plot_solution</a>
+</li>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_time_windows">pyvrp.plotting.plot_time_windows</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.read">pyvrp.read</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.Result">pyvrp.Result</a>
+</li>
+        <li><a href="api/search.html#module-pyvrp.search">pyvrp.search</a>
+</li>
+        <li><a href="api/search.html#module-pyvrp.search._search">pyvrp.search._search</a>
+</li>
+        <li><a href="api/search.html#module-pyvrp.search.LocalSearch">pyvrp.search.LocalSearch</a>
+</li>
+        <li><a href="api/search.html#module-pyvrp.search.neighbourhood">pyvrp.search.neighbourhood</a>
+</li>
+        <li><a href="api/search.html#module-pyvrp.search.SearchMethod">pyvrp.search.SearchMethod</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.show_versions">pyvrp.show_versions</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.solve">pyvrp.solve</a>
+</li>
+        <li><a href="api/pyvrp.html#module-pyvrp.Statistics">pyvrp.Statistics</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop">pyvrp.stop</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop.FirstFeasible">pyvrp.stop.FirstFeasible</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop.MaxIterations">pyvrp.stop.MaxIterations</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop.MaxRuntime">pyvrp.stop.MaxRuntime</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop.MultipleCriteria">pyvrp.stop.MultipleCriteria</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop.NoImprovement">pyvrp.stop.NoImprovement</a>
+</li>
+        <li><a href="api/stop.html#module-pyvrp.stop.StoppingCriterion">pyvrp.stop.StoppingCriterion</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/stop.html#pyvrp.stop.MultipleCriteria.MultipleCriteria">MultipleCriteria (class in pyvrp.stop.MultipleCriteria)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.mutually_exclusive">mutually_exclusive (ClientGroup attribute)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-MUTUALLY_EXCLUSIVE_GROUP_SECTION"><strong>MUTUALLY_EXCLUSIVE_GROUP_SECTION</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.name">name (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.name">(ClientGroup attribute)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot.name">(Depot attribute)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.name">(VehicleType attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.NeighbourhoodParams">NeighbourhoodParams (class in pyvrp.search.neighbourhood)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.neighbours">neighbours (LocalSearch property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.neighbours">neighbours() (Solution method)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-NODE_COORD_SECTION"><strong>NODE_COORD_SECTION</strong></a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.node_operators">node_operators (LocalSearch property)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.NodeOperator">NodeOperator (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/stop.html#pyvrp.stop.NoImprovement.NoImprovement">NoImprovement (class in pyvrp.stop.NoImprovement)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.none">none() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.num_available">num_available (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_clients">num_clients (ProblemData property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.num_clients">num_clients() (Solution method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_depots">num_depots (ProblemData property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_groups">num_groups (ProblemData property)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.LocalSearchStatistics.num_improving">num_improving (LocalSearchStatistics attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_load_dimensions">num_load_dimensions (ProblemData property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_locations">num_locations (ProblemData property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.num_missing_clients">num_missing_clients() (Solution method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.LocalSearchStatistics.num_moves">num_moves (LocalSearchStatistics attribute)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.NeighbourhoodParams.num_neighbours">num_neighbours (NeighbourhoodParams attribute)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.PerturbationManager.num_perturbations">num_perturbations() (PerturbationManager method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_profiles">num_profiles (ProblemData property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.num_routes">num_routes() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.num_trips">num_trips() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.num_trips">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/search.html#pyvrp.search._search.LocalSearchStatistics.num_updates">num_updates (LocalSearchStatistics attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_vehicle_types">num_vehicle_types (ProblemData property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.num_vehicles">num_vehicles (ProblemData property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.overtime">overtime() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.overtime">(Solution method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dev/glossary.html#term-Penalised-cost"><strong>Penalised cost</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.CostEvaluator.penalised_cost">penalised_cost() (CostEvaluator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyManager.penalties">penalties() (PenaltyManager method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.penalty_decrease">penalty_decrease (PenaltyParams attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.penalty_increase">penalty_increase (PenaltyParams attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.exceptions.PenaltyBoundWarning">PenaltyBoundWarning</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyManager">PenaltyManager (class in pyvrp.PenaltyManager)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams">PenaltyParams (class in pyvrp.PenaltyManager)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.PerturbationManager">PerturbationManager (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.PerturbationParams">PerturbationParams (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.pickup">pickup (Client attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.pickup">pickup() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.pickup">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_coordinates.plot_coordinates">plot_coordinates() (in module pyvrp.plotting.plot_coordinates)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_demands.plot_demands">plot_demands() (in module pyvrp.plotting.plot_demands)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_instance.plot_instance">plot_instance() (in module pyvrp.plotting.plot_instance)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_objectives.plot_objectives">plot_objectives() (in module pyvrp.plotting.plot_objectives)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_result.plot_result">plot_result() (in module pyvrp.plotting.plot_result)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_route_schedule.plot_route_schedule">plot_route_schedule() (in module pyvrp.plotting.plot_route_schedule)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_runtimes.plot_runtimes">plot_runtimes() (in module pyvrp.plotting.plot_runtimes)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_solution.plot_solution">plot_solution() (in module pyvrp.plotting.plot_solution)</a>
+</li>
+      <li><a href="api/plotting.html#pyvrp.plotting.plot_time_windows.plot_time_windows">plot_time_windows() (in module pyvrp.plotting.plot_time_windows)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.prize">prize (Client attribute)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-PRIZE_SECTION"><strong>PRIZE_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.prizes">prizes() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.prizes">(Solution method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.prizes">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData">ProblemData (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Profile">Profile (class in pyvrp.Model)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.profile">profile (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.profiles">profiles (Model property)</a>
+</li>
+      <li>
+    pyvrp
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp._pyvrp
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp._pyvrp">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.constants
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.constants">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.exceptions
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.exceptions">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.IteratedLocalSearch
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.IteratedLocalSearch">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.minimise_fleet
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.minimise_fleet">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.Model
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.Model">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.PenaltyManager
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.PenaltyManager">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_coordinates
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_coordinates">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    pyvrp.plotting.plot_demands
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_demands">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_instance
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_instance">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_objectives
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_objectives">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_result
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_result">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_route_schedule
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_route_schedule">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_runtimes
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_runtimes">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_solution
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_solution">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.plotting.plot_time_windows
+
+      <ul>
+        <li><a href="api/plotting.html#module-pyvrp.plotting.plot_time_windows">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.read
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.read">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.Result
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.Result">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.search
+
+      <ul>
+        <li><a href="api/search.html#module-pyvrp.search">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.search._search
+
+      <ul>
+        <li><a href="api/search.html#module-pyvrp.search._search">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.search.LocalSearch
+
+      <ul>
+        <li><a href="api/search.html#module-pyvrp.search.LocalSearch">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.search.neighbourhood
+
+      <ul>
+        <li><a href="api/search.html#module-pyvrp.search.neighbourhood">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.search.SearchMethod
+
+      <ul>
+        <li><a href="api/search.html#module-pyvrp.search.SearchMethod">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.show_versions
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.show_versions">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.solve
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.solve">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.Statistics
+
+      <ul>
+        <li><a href="api/pyvrp.html#module-pyvrp.Statistics">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop.FirstFeasible
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop.FirstFeasible">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop.MaxIterations
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop.MaxIterations">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop.MaxRuntime
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop.MaxRuntime">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop.MultipleCriteria
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop.MultipleCriteria">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop.NoImprovement
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop.NoImprovement">module</a>
+</li>
+      </ul></li>
+      <li>
+    pyvrp.stop.StoppingCriterion
+
+      <ul>
+        <li><a href="api/stop.html#module-pyvrp.stop.StoppingCriterion">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator.rand">rand() (RandomNumberGenerator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator.randint">randint() (RandomNumberGenerator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator">RandomNumberGenerator (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.read.read">read() (in module pyvrp.read)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.read.read_solution">read_solution() (in module pyvrp.read)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyManager.register">register() (PenaltyManager method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.release_time">release_time (Client attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.release_time">release_time() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.release_time">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="dev/supported_vrplib_fields.html#term-RELEASE_TIME_SECTION"><strong>RELEASE_TIME_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.reload_depots">reload_depots (VehicleType attribute)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.RelocateWithDepot">RelocateWithDepot (class in pyvrp.search._search)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.replace">replace() (ProblemData method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.replace">(VehicleType method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.required">required (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.ClientGroup.required">(ClientGroup attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.reset">reset() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Result.Result">Result (class in pyvrp.Result)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route">Route (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="dev/glossary.html#term-Route-segment"><strong>Route segment</strong></a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.route_operators">route_operators (LocalSearch property)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.RouteOperator">RouteOperator (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.routes">routes() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.IteratedLocalSearch.IteratedLocalSearch.run">run() (IteratedLocalSearch method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.exceptions.ScalingWarning">ScalingWarning</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.schedule">schedule() (Route method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit">ScheduledVisit (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.search">search() (LocalSearch method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.SearchMethod.SearchMethod">SearchMethod (class in pyvrp.search.SearchMethod)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.service_duration">service_duration (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot.service_duration">(Depot attribute)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.service_duration">(ScheduledVisit attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.service_duration">service_duration() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.service_duration">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="dev/supported_vrplib_fields.html#term-SERVICE_TIME"><strong>SERVICE_TIME</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-SERVICE_TIME_SECTION"><strong>SERVICE_TIME_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.DynamicBitset.set">set() (DynamicBitset method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.shift_duration">shift_duration (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.show_versions.show_versions">show_versions() (in module pyvrp.show_versions)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.PerturbationManager.shuffle">shuffle() (PerturbationManager method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.slack">slack() (Route method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution">Solution (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.solutions_between_updates">solutions_between_updates (PenaltyParams attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.solve.solve">solve() (in module pyvrp.solve)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp.Model.Model.solve">(Model method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp.solve.SolveParams">SolveParams (class in pyvrp.solve)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.start_depot">start_depot (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.start_depot">start_depot() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.start_depot">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.start_late">start_late (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.start_service">start_service (ScheduledVisit attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.start_time">start_time() (Route method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.RandomNumberGenerator.state">state() (RandomNumberGenerator method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Statistics.Statistics">Statistics (class in pyvrp.Statistics)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.LocalSearch.LocalSearch.statistics">statistics (LocalSearch property)</a>
+</li>
+      <li><a href="api/stop.html#pyvrp.stop.StoppingCriterion.StoppingCriterion">StoppingCriterion (class in pyvrp.stop.StoppingCriterion)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Result.Result.summary">summary() (Result method)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.SwapRoutes">SwapRoutes (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.SwapStar">SwapStar (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search._search.SwapTails">SwapTails (class in pyvrp.search._search)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.NeighbourhoodParams.symmetric_neighbours">symmetric_neighbours (NeighbourhoodParams attribute)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.NeighbourhoodParams.symmetric_proximity">symmetric_proximity (NeighbourhoodParams attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp.PenaltyManager.PenaltyParams.target_feasible">target_feasible (PenaltyParams attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.time_warp">time_warp (ScheduledVisit attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.time_warp">time_warp() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.time_warp">(Solution method)</a>
+</li>
+      </ul></li>
+      <li><a href="dev/supported_vrplib_fields.html#term-TIME_WINDOW_SECTION"><strong>TIME_WINDOW_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp.Statistics.Statistics.to_csv">to_csv() (Statistics method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.travel_duration">travel_duration() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.travel_duration">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip">Trip (class in pyvrp._pyvrp)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.trip">trip (ScheduledVisit attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.trip">trip() (Route method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.trips">trips() (Route method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.tw_early">tw_early (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot.tw_early">(Depot attribute)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.tw_early">(VehicleType attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.tw_late">tw_late (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot.tw_late">(Depot attribute)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.tw_late">(VehicleType attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.CostEvaluator.tw_penalty">tw_penalty() (CostEvaluator method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Solution.uncollected_prizes">uncollected_prizes() (Solution method)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.unit_distance_cost">unit_distance_cost (VehicleType attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.unit_duration_cost">unit_duration_cost (VehicleType attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType.unit_overtime_cost">unit_overtime_cost (VehicleType attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.vehicle_type">vehicle_type() (ProblemData method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.vehicle_type">(Route method)</a>
+</li>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.vehicle_type">(Trip method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/pyvrp.html#pyvrp.Model.Model.vehicle_types">vehicle_types (Model property)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ProblemData.vehicle_types">vehicle_types() (ProblemData method)</a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES"><strong>VEHICLES</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_ALLOWED_CLIENTS_SECTION"><strong>VEHICLES_ALLOWED_CLIENTS_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_DEPOT_SECTION"><strong>VEHICLES_DEPOT_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_FIXED_COST_SECTION"><strong>VEHICLES_FIXED_COST_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_MAX_DISTANCE"><strong>VEHICLES_MAX_DISTANCE</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_MAX_DISTANCE_SECTION"><strong>VEHICLES_MAX_DISTANCE_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_MAX_DURATION"><strong>VEHICLES_MAX_DURATION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_MAX_DURATION_SECTION"><strong>VEHICLES_MAX_DURATION_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_MAX_RELOADS"><strong>VEHICLES_MAX_RELOADS</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_MAX_RELOADS_SECTION"><strong>VEHICLES_MAX_RELOADS_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_RELOAD_DEPOT_SECTION"><strong>VEHICLES_RELOAD_DEPOT_SECTION</strong></a>
+</li>
+      <li><a href="dev/supported_vrplib_fields.html#term-VEHICLES_UNIT_DISTANCE_COST_SECTION"><strong>VEHICLES_UNIT_DISTANCE_COST_SECTION</strong></a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.VehicleType">VehicleType (class in pyvrp._pyvrp)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.visits">visits() (Route method)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Trip.visits">(Trip method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.ScheduledVisit.wait_duration">wait_duration (ScheduledVisit attribute)</a>
+</li>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Route.wait_duration">wait_duration() (Route method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.NeighbourhoodParams.weight_time_warp">weight_time_warp (NeighbourhoodParams attribute)</a>
+</li>
+      <li><a href="api/search.html#pyvrp.search.neighbourhood.NeighbourhoodParams.weight_wait_time">weight_wait_time (NeighbourhoodParams attribute)</a>
+</li>
+      <li><a href="setup/faq.html#term-Why-does-PyVRP-sometimes-get-stuck-when-using-partial-travel-matrices"><strong>Why does PyVRP sometimes get stuck when using partial travel matrices?</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.x">x (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot.x">(Depot attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pyvrp.html#pyvrp._pyvrp.Client.y">y (Client attribute)</a>
+
+      <ul>
+        <li><a href="api/pyvrp.html#pyvrp._pyvrp.Depot.y">(Depot attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2022 - 2026, PyVRP contributors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.1.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.top", "content.code.copy"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike", "staticVersions": [{"aliases": [], "title": "Development", "version": "https://pyvrp.org"}, {"aliases": [], "title": "v0.12.0", "version": "https://pyvrp.github.io/v0.12.0"}, {"aliases": [], "title": "v0.11.0", "version": "https://pyvrp.github.io/v0.11.0"}, {"aliases": [], "title": "v0.10.0", "version": "https://pyvrp.github.io/v0.10.0"}, {"aliases": [], "title": "v0.9.0", "version": "https://pyvrp.github.io/v0.9.0"}, {"aliases": [], "title": "v0.8.1", "version": "https://pyvrp.github.io/v0.8.1"}, {"aliases": [], "title": "v0.7.0", "version": "https://pyvrp.github.io/v0.7.0"}, {"aliases": [], "title": "v0.6.0", "version": "https://pyvrp.github.io/v0.6.0"}, {"aliases": [], "title": "v0.5.0", "version": "https://pyvrp.github.io/v0.5.0"}, {"aliases": [], "title": "v0.4.4", "version": "https://pyvrp.github.io/v0.4.4"}, {"aliases": [], "title": "v0.3.0", "version": "https://pyvrp.github.io/v0.3.0"}, {"aliases": [], "title": "v0.2.1", "version": "https://pyvrp.github.io/v0.2.1"}, {"aliases": [], "title": "v0.1.0", "version": "https://pyvrp.github.io/v0.1.0"}], "versionPath": null}}</script>    
+      
+        <script src="_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+  </body>
+</html>
